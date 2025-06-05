@@ -77,9 +77,6 @@ SpaceForces bridges the gap between space education and entertainment, making sp
 
 - **Media Storage**: Cloudinary
 - **News API**: Spaceflight News API
-- **Monitoring**: Prometheus + Grafana
-- **Containerization**: Docker
-- **Orchestration**: Kubernetes
 
 ## Getting Started
 
