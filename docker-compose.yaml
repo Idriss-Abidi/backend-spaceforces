@@ -1,0 +1,42 @@
+services:
+  spaceforces-back:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spaceforces-backend
+    ports:
+      - 8080:8080
+    volumes:
+      - ./data:/app/data
+    environment:
+      SPRING_PROFILES_ACTIVE: "production"
+      SPRING_JPA_HIBERNATE_DDL_AUTO: "validate"
+      DB_URL: "jdbc:oracle:thin:@(description=(retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.eu-paris-1.oraclecloud.com))(connect_data=(service_name=gc0dad4f749d64e_spaceforces_tpurgent.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))?TNS_ADMIN=/app/wallet_spaceforces"
+      DB_USERNAME: "admin"
+      DB_PASSWORD: "Password2020++"
+      JWT_SECRET: "lLPraR9qqZSj3B0NKDnv2RB0kVg6vl0XlLPraR9qqZSj3B0AKDnv2RB0kVg6vl0X"
+      CLOUDINARY_CLOUD_NAME: "dgryc2mgq"
+      CLOUDINARY_API_KEY: "673925351632377"
+      CLOUDINARY_API_SECRET: "u--E8uSQlui5pnd-CQ8B4e_C7PU"
+  prometheus:
+    image: prom/prometheus:v3.4.0
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+        - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+  grafana:
+    image: grafana/grafana-oss:11.6.1
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SERVER_DOMAIN=localhost
+
