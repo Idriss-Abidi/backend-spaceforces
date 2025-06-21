@@ -66,7 +66,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md space-y-8 bg-[#1a1a4f]/70 p-8 rounded-xl backdrop-blur-sm">
           <div className="text-center">
             <Rocket className="mx-auto h-12 w-12 text-purple-400" />
-            <h2 className="mt-6 text-3xl font-bold">Welcome to SpaceForces</h2>
+            <h2 className="mt-6 text-3xl font-bold">Welcome to SpaceForces """LOGIN PAGE"""</h2>
             <p className="mt-2 text-sm text-gray-400">Sign in to your account</p>
           </div>
 

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spaceforces-config
+  namespace: spaceforces
+data:
+  SPRING_PROFILES_ACTIVE: "production"
+  SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
+  SPRING_JPA_SHOW_SQL: "true"
+  SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: "org.hibernate.dialect.PostgreSQLDialect"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/spaceforces2"
+  SPRING_DATASOURCE_USERNAME: "postgres"
+  SPRING_DATASOURCE_PASSWORD: "a"
+  CLOUDINARY_CLOUD_NAME: "dgryc2mgq"
+  CLOUDINARY_API_KEY: "673925351632377"
+  CLOUDINARY_API_SECRET: "u--E8uSQlui5pnd-CQ8B4e_C7PU" 
