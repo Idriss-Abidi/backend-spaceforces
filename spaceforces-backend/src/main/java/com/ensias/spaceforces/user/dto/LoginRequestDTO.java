@@ -1,4 +1,4 @@
-package com.ensias.ecs.user.dto;
+package com.ensias.spaceforces.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
