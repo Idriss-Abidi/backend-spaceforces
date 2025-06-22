@@ -200,12 +200,10 @@ spec:
     // }
     post {
     always {
-        node {
-            container('docker') {
-                sh 'docker logout'
-            }
-            echo 'Pipeline finished.'
+        container('docker') {
+            sh 'docker logout'
         }
+        echo 'Pipeline finished.'
     }
     success {
         echo 'Pipeline succeeded!'
@@ -214,5 +212,6 @@ spec:
         echo 'Pipeline failed!'
     }
     }
+
 
 }
