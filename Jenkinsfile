@@ -182,20 +182,37 @@ spec:
         }
     }
 
+    // post {
+    //     always {
+    //         script {
+    //             container('docker') {
+    //                 sh 'docker logout'
+    //             }
+    //         }
+    //         echo 'Pipeline finished.'
+    //     }
+    //     success {
+    //         echo 'Pipeline succeeded!'
+    //     }
+    //     failure {
+    //         echo 'Pipeline failed!'
+    //     }
+    // }
     post {
-        always {
-            script {
-                container('docker') {
-                    sh 'docker logout'
-                }
+    always {
+        node {
+            container('docker') {
+                sh 'docker logout'
             }
             echo 'Pipeline finished.'
         }
-        success {
-            echo 'Pipeline succeeded!'
-        }
-        failure {
-            echo 'Pipeline failed!'
-        }
     }
+    success {
+        echo 'Pipeline succeeded!'
+    }
+    failure {
+        echo 'Pipeline failed!'
+    }
+    }
+
 }
